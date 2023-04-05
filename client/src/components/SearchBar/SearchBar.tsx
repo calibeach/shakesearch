@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { FeatherPointed } from '@styled-icons/fa-solid/FeatherPointed'
-import { StyledInput, StyledForm, StyledButton } from './styles'
+import { StyledInput, StyledForm, StyledButton, StyledSearchBarContainer } from './styles'
 import {FormEvent, FunctionComponent, useState} from 'react'
 
 const StyledFeatherPointed = styled(FeatherPointed)`
-  color: red;
+  color: #370707;
 `
 
 
@@ -18,10 +18,12 @@ const SearchBar = () => {
   }
 
   return (
-  <StyledForm onSubmit={handleSubmit}>
-    <StyledInput type="text" value={query} placeholder="Type Character Name Here" onChange={(e) => setQuery(e.target.value)}/>
-    <StyledButton type="submit">Submit</StyledButton>
-  </StyledForm>
+  <StyledSearchBarContainer>
+    <StyledForm onSubmit={handleSubmit}>
+      <StyledInput type="text" value={query} placeholder="Type Character Name Here" onChange={(e) => setQuery(e.target.value)}/>
+      <StyledButton type="submit">Submit</StyledButton>
+    </StyledForm>
+  </StyledSearchBarContainer>
   )
 }
 

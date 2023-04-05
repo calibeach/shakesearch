@@ -5,10 +5,11 @@ const StyledWrapper = styled.div`
     font: ${({theme}) => theme.font.family};
     display: flex;
     padding: 50px;
-    width: 240px;
-    height: 300px;
-    justify-content: flex-end;
+    width: 90vh;
+    height: 90vh;
+    justify-content: flex-start;
+    align-items: center;
     flex-direction: column;
-`   
+`
 
 export default StyledWrapper

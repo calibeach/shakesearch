@@ -1,29 +1,29 @@
 import styled, { css } from 'styled-components'
 
-export const SearchBarContainer = styled.div`
+export const StyledSearchBarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
   border-radius: 5px;
 `
 export const StyledForm = styled.form`
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    border-radius: 5px;
+    flex-direction: row;
     padding: 20px;
+    width: 100%;
     border-radius: 5px;
+    align-items: center;
 `
 
 export const StyledInput = styled.input`
   flex: 1 0;
-  min-width: 50px;
+  min-width: 300px;
   min-height: 25px;
+  border: 1px solid ${({theme}) => theme.border.color};
+  border-radius: 5px;
   background-color: transparent;
-  padding-left: 5px;
-  border: 0;
+  padding: 5px;
+  margin: 10px;
   &:focus {
     outline: none
   }
@@ -32,8 +32,8 @@ export const StyledInput = styled.input`
 export const StyledButton = styled.button`
   background-color: #4caf50;
   color: white;
+  max-height: 36px;
   padding: 10px;
-  margin-top: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
