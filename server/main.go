@@ -21,7 +21,7 @@ func main() {
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fs)
 
-	http.HandleFunc("/search", handleSearch(searcher))
+	http.HandleFunc("/api/search", handleSearch(searcher))
 
 	port := os.Getenv("PORT")
 	if port == "" {

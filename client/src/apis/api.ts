@@ -1,8 +1,7 @@
-const FETCH_API_URL = "search?q="
 
-async function fetchSearchResults(queryString: string) {
-    const url = `${FETCH_API_URL}${queryString}`
-    return fetch(url).then((response) => response.json())
-}
+  async function fetchSearchResults (searchQuery: string) {
+    const res = await fetch(`/api/search?q=${searchQuery}`);
+    return await res.json();
+  }
 
 export { fetchSearchResults }
