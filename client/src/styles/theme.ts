@@ -3,9 +3,15 @@ interface DefaultTheme {
     border: {
         color: string,
         radius: string
-    }
+    },
     font: {
         family: string
+    },
+    quotation: {
+        font: {
+            family: string,
+            size: number
+        }
     }
 }
 
@@ -17,6 +23,12 @@ const theme: DefaultTheme = {
     },
     font: {
         family: "Roboto, sans-serif"
+    },
+    quotation: {
+        font: {
+            family: "Roboto, sans-serif",
+            size: 14
+        }
     }
 }
 

@@ -27,4 +27,4 @@ const SearchBar = ({handleSubmit} : {handleSubmit: (s:string) => void}) => {
   )
 }
 
-export default SearchBar
+export { SearchBar }

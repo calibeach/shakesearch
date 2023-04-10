@@ -27,6 +27,7 @@ export const StyledInput = styled.input`
   &:focus {
     outline: none
   }
+  color: black;
 `
 
 export const StyledButton = styled.button`
