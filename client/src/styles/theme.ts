@@ -1,11 +1,22 @@
 interface DefaultTheme {
     background: string,
-    border: {
-        color: string,
-        radius: string
+    searchBar: {
+        border: {
+            color: string,
+            radius: number
+        },
     },
-    font: {
-        family: string
+    listItem: {
+        border: {
+            color: string,
+            radius: number
+        }
+    },
+    button: {
+        background: {
+            primary: string;
+            secondary: string;
+        };
     },
     quotation: {
         font: {
@@ -17,12 +28,23 @@ interface DefaultTheme {
 
 const theme: DefaultTheme = {
     background: "#FFFFFF",
-    border: {
-        color: "#505050",
-        radius: "5px"
+    searchBar: {
+        border: {
+            color: "#505050",
+            radius: 5
+        }
     },
-    font: {
-        family: "Roboto, sans-serif"
+    button: {
+        background: {
+            primary: "#4caf50",
+            secondary: "#E7625F",
+        }
+    },
+    listItem: {
+        border: {
+            color: "#505050",
+            radius: 5
+        }
     },
     quotation: {
         font: {
