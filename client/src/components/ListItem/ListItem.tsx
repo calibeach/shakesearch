@@ -1,9 +1,15 @@
 import { StyledListItem } from "./styles"
+import { ReactNode } from "react"
 
-const ListItem = ({quotation} : {quotation: string}) => {
+interface ListItemProps {
+    children?: ReactNode
+}
+
+
+const ListItem = ({children}: ListItemProps) => {
     return (
         <StyledListItem>
-            {`...${quotation}...`}
+            {children}
         </StyledListItem>
     )
 }

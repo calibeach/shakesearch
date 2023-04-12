@@ -16,7 +16,7 @@ function App() {
       <StyledWrapper>
         <Header />
         <SearchBar handleSubmit={(query) => setQueryString(query)}/>
-        { query.data && <List searchResults={query.data}/>}
+        {query.data && <List queryString={queryString} searchResults={query.data}/>}
       </StyledWrapper>
   )
 }

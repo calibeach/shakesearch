@@ -1,7 +1,9 @@
- :root {
+   :root {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: url("./assets/paper5.jpg");
+    background-size: cover;
 }
 
 /*

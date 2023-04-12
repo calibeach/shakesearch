@@ -11,7 +11,13 @@ const GlobalStyle = createGlobalStyle`
         width: 100vh;
         height: 100vh;
         font-weight: 200;
+        color: #221608;
     }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #221608;
+  opacity: 1; /* Firefox */
+}
 `
 
 

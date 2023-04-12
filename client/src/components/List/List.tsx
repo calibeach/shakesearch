@@ -2,10 +2,15 @@ import {useState, useEffect, Fragment} from "react"
 import { paginate } from "../../helpers"
 import { ListItem } from "../ListItem"
 import { ResultSummary } from "../ResultSummary"
-import { StyledList, StyledListContainer, StyledArrowRight, StyledArrowLeft } from "./styles"
+import Highlighter from "react-highlight-words"
+import { StyledList, StyledListContainer } from "./styles"
 
+type ListPropTypes = {
+    searchResults: string[],
+    queryString: string
+}
 
-const List = ({searchResults} : {searchResults: string[]}) => {
+const List = ({searchResults, queryString } : ListPropTypes ) => {
     const [paginatedResults, setPaginatedResults] = useState<string[]>([])
     const [page, setPage] = useState(1)
     const [hasPreviousPage, setHasPreviousPage] = useState(false)
@@ -46,22 +51,23 @@ const List = ({searchResults} : {searchResults: string[]}) => {
 
     return (
         <Fragment>
-                    <ResultSummary items={paginatedResults.length} currentPage={page} total={pagination.total} totalPages={pagination.totalPages}/>
-        <StyledListContainer>
-            {paginatedResults && 
-                <Fragment>
-                    <StyledArrowLeft onClick={handlePageBack}/>
-                        <StyledList>
-                            {paginatedResults && paginatedResults.map((item, index) => {
-                                    return (
-                                        <ListItem quotation={item} key={index}/>
-                                    )
-                            })}
-                        </StyledList>
-                    <StyledArrowRight onClick={handlePageForward}/>
-                </Fragment>
-                }
-            </StyledListContainer>
+            <ResultSummary items={paginatedResults.length} currentPage={page} total={pagination.total} totalPages={pagination.totalPages} handlePageForward={handlePageForward} handlePageBack={handlePageBack}/>
+                <StyledListContainer>   
+                    {paginatedResults && 
+                        <Fragment>
+                                <StyledList>
+                                    {paginatedResults && paginatedResults.map((item, index) => {
+                                            console.log("[eys] \nqueryString %o\nitem %o", queryString, item)
+                                            return (
+                                                <ListItem>
+                                                <Highlighter textToHighlight={`...${item}...`} searchWords={[queryString]}/>
+                                                </ListItem>
+                                            )
+                                    })}
+                                </StyledList>
+                        </Fragment>
+                        }
+                </StyledListContainer>
         </Fragment>
     )
 }

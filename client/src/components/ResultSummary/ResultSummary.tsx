@@ -1,19 +1,23 @@
-import { StyledResultSummary } from "./styles";
+import { StyledResultSummary, StyledArrowRight, StyledArrowLeft  } from "./styles";
 
 type ResultSummary = {
     items: number,
     total: number,
     totalPages: number,
-    currentPage: number
+    currentPage: number,
+    handlePageForward: () => void,
+    handlePageBack: () => void
 }
 
-const ResultSummary = ({items, currentPage, total, totalPages}:ResultSummary) => {
+const ResultSummary = ({items, currentPage, total, totalPages, handlePageBack, handlePageForward}:ResultSummary) => {
     let endNumberOfResults = currentPage * 5
     let beginningNumberOfResults = endNumberOfResults - 4
 
     return (
         <StyledResultSummary>
-            Displaying Results: {beginningNumberOfResults} - {endNumberOfResults} Total Entries: {total} Page: {currentPage} Total Pages: {totalPages}
+            <StyledArrowLeft onClick={handlePageBack}/>
+            {beginningNumberOfResults} - {endNumberOfResults} of {total} Entries      |      {currentPage} of {totalPages}  Pages
+            <StyledArrowRight onClick={handlePageForward}/>
         </StyledResultSummary>
     )
 }

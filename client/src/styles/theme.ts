@@ -18,6 +18,10 @@ interface DefaultTheme {
             secondary: string;
         };
     },
+    header: {
+        font: string,
+        size: number
+    }
     quotation: {
         font: {
             family: string,
@@ -30,15 +34,21 @@ const theme: DefaultTheme = {
     background: "#FFFFFF",
     searchBar: {
         border: {
-            color: "#505050",
+            color: "#784E1F",
             radius: 5
         }
     },
     button: {
         background: {
-            primary: "#4caf50",
-            secondary: "#E7625F",
+            primary: "#1F7871",
+            secondary: "#2A1F78",
+            // primary: "#808000",
+            // secondary: "#A52A2A"
         }
+    },
+    header: {
+        font: `'Fondamento', cursive`,
+        size: 20
     },
     listItem: {
         border: {

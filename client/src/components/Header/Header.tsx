@@ -1,13 +1,18 @@
 import williamShakespeare from "../../assets/williamShakespeare.svg"
+import {StyledHeaderText} from "./styles"
 
 
 const Header = () => {
     return (
-        <img src={williamShakespeare} width="100px" height="100px" />
-        // <div className="header">
-        //     <h1>ShakeSearch</h1>
-        //     <FontAwesomeIcon style={{color: "rgb(101, 62, 187)", fontSize: "0.75em"}} icon={faFeatherPointed}/>
-        // </div>
+        <>
+            <img src={williamShakespeare} width="100px" height="100px" style={{}}/>
+                <StyledHeaderText>
+                     "There is more to Heaven and Earth than are dreamt of in your Philosophy"
+                </StyledHeaderText>
+                <StyledHeaderText>
+                -William Shakespeare
+                </StyledHeaderText>
+        </>
     )
 }
 
