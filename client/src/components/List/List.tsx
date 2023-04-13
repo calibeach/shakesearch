@@ -4,6 +4,7 @@ import { ListItem } from "../ListItem"
 import { ResultSummary } from "../ResultSummary"
 import Highlighter from "react-highlight-words"
 import { StyledList, StyledListContainer } from "./styles"
+import { ErrorMessage } from "../ErrorMessage"
 
 type ListPropTypes = {
     searchResults: string[],
@@ -32,40 +33,42 @@ const List = ({searchResults, queryString } : ListPropTypes ) => {
         setPaginatedResults(pagination.items)
         pagination.previousPage == null ? setHasPreviousPage(false) : setHasPreviousPage(true)
         pagination.nextPage == null ? setHasNextPage(false) : setHasNextPage(true)
-        console.log("[eys]", pagination)
     },[page])
 
-    useEffect(() => {
-        console.log("[eys] total ", total, "totalPages ", totalPages)
-    },[total, totalPages])
-
     const handlePageForward = () => {
-        console.log("[eys] forward")
+        if (!hasNextPage) {
+            return
+        }
         setPage(page + 1)
     }
 
     const handlePageBack = () => {
-        console.log("[eys] backward")
+        if (!hasPreviousPage) {
+            return
+        }
         setPage(page - 1)
     }
+
+    console.log("[eys] searchResults ", searchResults)
 
     return (
         <Fragment>
             <ResultSummary items={paginatedResults.length} currentPage={page} total={pagination.total} totalPages={pagination.totalPages} handlePageForward={handlePageForward} handlePageBack={handlePageBack}/>
                 <StyledListContainer>   
-                    {paginatedResults && 
-                        <Fragment>
+                    {searchResults.length === 0 ? 
+                        (paginatedResults && 
+                            <ErrorMessage />
+                             ) : (paginatedResults &&
                                 <StyledList>
                                     {paginatedResults && paginatedResults.map((item, index) => {
-                                            console.log("[eys] \nqueryString %o\nitem %o", queryString, item)
-                                            return (
-                                                <ListItem>
+                                        return (
+                                            <ListItem>
                                                 <Highlighter textToHighlight={`...${item}...`} searchWords={[queryString]}/>
-                                                </ListItem>
-                                            )
+                                            </ListItem>
+                                        )
                                     })}
                                 </StyledList>
-                        </Fragment>
+                            )
                         }
                 </StyledListContainer>
         </Fragment>

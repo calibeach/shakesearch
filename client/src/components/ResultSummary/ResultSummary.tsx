@@ -10,8 +10,17 @@ type ResultSummary = {
 }
 
 const ResultSummary = ({items, currentPage, total, totalPages, handlePageBack, handlePageForward}:ResultSummary) => {
-    let endNumberOfResults = currentPage * 5
-    let beginningNumberOfResults = endNumberOfResults - 4
+
+    let beginningNumberOfResults, endNumberOfResults
+
+    if (items < 5 ) {
+        beginningNumberOfResults = currentPage * 5 - 4;
+        endNumberOfResults = beginningNumberOfResults + items - 1
+    } else {
+        endNumberOfResults = currentPage * 5
+        beginningNumberOfResults = endNumberOfResults - 4
+    }
+
 
     return (
         <StyledResultSummary>

@@ -19,8 +19,20 @@ interface DefaultTheme {
         };
     },
     header: {
-        font: string,
-        size: number
+        title: {
+            font: string
+            fontSize: number
+            fontColor: string
+        },
+        intro: {
+            font: string,
+            fontSize: number,
+            fontColor: string
+        }
+        subheader: {
+            font: string,
+            fontSize: number
+        }
     }
     quotation: {
         font: {
@@ -42,13 +54,23 @@ const theme: DefaultTheme = {
         background: {
             primary: "#1F7871",
             secondary: "#2A1F78",
-            // primary: "#808000",
-            // secondary: "#A52A2A"
         }
     },
     header: {
-        font: `'Fondamento', cursive`,
-        size: 20
+        title: {
+            font: `'Charmonman', cursive;`,
+            fontSize: 80,
+            fontColor: "#553716"
+        },
+        intro: {
+            font: `'Charmonman', cursive;`,
+            fontSize: 16,
+            fontColor: "#553716"
+        },
+        subheader: {
+            font: `'Fondamento', cursive`,
+            fontSize: 20
+        }
     },
     listItem: {
         border: {

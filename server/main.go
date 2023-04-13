@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -68,15 +69,35 @@ func (s *Searcher) Load(filename string) error {
 		return fmt.Errorf("Load: %w", err)
 	}
 	s.CompleteWorks = string(dat)
-	s.SuffixArray = suffixarray.New(dat)
+	s.SuffixArray = suffixarray.New([]byte(strings.ToLower(s.CompleteWorks)))
 	return nil
 }
 
 func (s *Searcher) Search(query string) []string {
-	idxs := s.SuffixArray.Lookup([]byte(query), -1)
+	queryLower := strings.ToLower(query)
+	idxs := s.SuffixArray.Lookup([]byte(queryLower), -1)
 	results := []string{}
+
 	for _, idx := range idxs {
-		results = append(results, s.CompleteWorks[idx-250:idx+250])
+		// ignore matches where query is a substring of a larger word
+		//TODO: add condition where character after the query is not a letter
+		if idx > 0 && s.CompleteWorks[idx-1] != ' ' {
+			continue
+		}
+		startIdx := idx - 250
+		if startIdx < 0 {
+			startIdx = 0
+		}
+		endIdx := idx + 250
+		if endIdx > len(s.CompleteWorks) {
+			endIdx = len(s.CompleteWorks)
+		}
+		result := s.CompleteWorks[startIdx:endIdx]
+		if resultLower := strings.ToLower(result); strings.Contains(resultLower, queryLower) {
+			// replace the original casing of the query in the result
+			result = strings.ReplaceAll(result, queryLower, query)
+			results = append(results, result)
+		}
 	}
 	return results
 }
