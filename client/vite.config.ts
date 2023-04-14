@@ -5,9 +5,6 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   plugins: [react()],
   base: "https://edwardshei-pulley-backend.onrender.com",
-  build: {
-    manifest: 'manifest.js'
-  },
   server: {
     proxy: {
       "/api": {
