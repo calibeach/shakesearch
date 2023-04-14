@@ -1,11 +1,11 @@
 import { Button } from '../Button'
-import { useState,FormEvent } from 'react'
+import { useState, FormEvent, useEffect } from 'react'
 import { StyledInput, StyledForm, StyledSearchBarContainer } from './styles'
 
-const SearchBar = ({handleSubmit} : {handleSubmit: (s:string) => void}) => {
+const SearchBar = ({ handleSubmit } : {handleSubmit: (s:string) => void}) => {
   const [query, setQuery] = useState("")
 
-  const handleFormSubmit = (e: FormEvent) => {
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     handleSubmit(query)
   }
@@ -13,7 +13,6 @@ const SearchBar = ({handleSubmit} : {handleSubmit: (s:string) => void}) => {
   const handleClear = () => {
     setQuery("")
   }
-
 
   return (
     <StyledSearchBarContainer>
