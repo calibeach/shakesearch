@@ -41,6 +41,8 @@ type Searcher struct {
 	SuffixArray   *suffixarray.Index
 }
 
+// added this to enable CORS for production environment for this particular app
+// Would not do this any other time
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
