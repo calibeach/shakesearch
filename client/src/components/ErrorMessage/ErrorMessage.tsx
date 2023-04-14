@@ -1,8 +1,8 @@
-import { StyledMessage } from "./styled";
+import { StyledErrorMessage } from "./styled";
 
 const ErrorMessage = () => {
     return (
-        <StyledMessage>We could not find your search term in Shakespeare's works</StyledMessage>
+        <StyledErrorMessage>We could not find your search term in Shakespeare's works</StyledErrorMessage>
     )
 }
 

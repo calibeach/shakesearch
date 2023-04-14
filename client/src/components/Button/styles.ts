@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-type ButtonVariant = "primary" | "secondary" 
+type ButtonVariant = "primary" | "secondary" | "tertiary"
 
 const StyledButton = styled.button<{variant: ButtonVariant}>`
     background-color: ${({theme, variant}) => theme.button.background[variant]};
-    color: white;
+    color: ${({theme, variant}) => theme.button.color[variant]};
     max-height: 36px;
     padding: 10px;
     border: none;

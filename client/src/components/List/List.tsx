@@ -16,18 +16,10 @@ const List = ({searchResults, queryString } : ListPropTypes ) => {
     const [page, setPage] = useState(1)
     const [hasPreviousPage, setHasPreviousPage] = useState(false)
     const [hasNextPage, setHasNextPage] = useState(true)
-    const [totalPages, setTotalPages] = useState(0)
-    const [total, setTotal] = useState(0)
-
 
     const RESULTS_PER_PAGE = 5
 
     const pagination = paginate(searchResults, page, RESULTS_PER_PAGE)
-
-    useEffect(() => {
-        setTotalPages(pagination.totalPages)
-        setTotal(pagination.total)
-    },[])
 
     useEffect(() => {
         setPaginatedResults(pagination.items)
@@ -49,8 +41,6 @@ const List = ({searchResults, queryString } : ListPropTypes ) => {
         setPage(page - 1)
     }
 
-    console.log("[eys] searchResults ", searchResults)
-
     return (
         <Fragment>
             <ResultSummary items={paginatedResults.length} currentPage={page} total={pagination.total} totalPages={pagination.totalPages} handlePageForward={handlePageForward} handlePageBack={handlePageBack}/>
@@ -62,8 +52,8 @@ const List = ({searchResults, queryString } : ListPropTypes ) => {
                                 <StyledList>
                                     {paginatedResults && paginatedResults.map((item, index) => {
                                         return (
-                                            <ListItem>
-                                                <Highlighter textToHighlight={`...${item}...`} searchWords={[queryString]}/>
+                                            <ListItem key={index}>
+                                                <Highlighter key={index} textToHighlight={`...${item}...`} searchWords={[queryString]}/>
                                             </ListItem>
                                         )
                                     })}

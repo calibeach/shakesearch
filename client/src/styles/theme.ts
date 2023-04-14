@@ -7,16 +7,26 @@ interface DefaultTheme {
         },
     },
     listItem: {
-        border: {
-            color: string,
-            radius: number
-        }
+        backgroundColor: string,
+        boxShadowColor: string,
+        opacity: number,
+        margin: number
     },
+    errorMessage: {
+        font: string,
+        fontSize: number
+    }
     button: {
         background: {
             primary: string;
             secondary: string;
+            tertiary: string;
         };
+        color: {
+            primary: string;
+            secondary: string;
+            tertiary: string;
+        }
     },
     header: {
         title: {
@@ -31,14 +41,12 @@ interface DefaultTheme {
         }
         subheader: {
             font: string,
-            fontSize: number
+            fontSize: number,
+            fontColor: string
         }
-    }
-    quotation: {
-        font: {
-            family: string,
-            size: number
-        }
+    },
+    resultSummary: {
+        arrowColor: string
     }
 }
 
@@ -50,10 +58,20 @@ const theme: DefaultTheme = {
             radius: 5
         }
     },
+    errorMessage: {
+        font: `'Fondamento', cursive`,
+        fontSize: 20
+    },
     button: {
         background: {
             primary: "#1F7871",
             secondary: "#2A1F78",
+            tertiary: "transparent"
+        },
+        color: {
+            primary: "#FFFFFF",
+            secondary: "#FFFFFF",
+            tertiary: "#784E1F",
         }
     },
     header: {
@@ -69,20 +87,18 @@ const theme: DefaultTheme = {
         },
         subheader: {
             font: `'Fondamento', cursive`,
-            fontSize: 20
+            fontSize: 20,
+            fontColor: "#553716"
         }
     },
     listItem: {
-        border: {
-            color: "#505050",
-            radius: 5
-        }
+        backgroundColor: `rgba(216, 204, 191, .4)`,
+        boxShadowColor: `rgba(216, 204, 191, .4)`,
+        opacity: 0.8,
+        margin: 10
     },
-    quotation: {
-        font: {
-            family: "Roboto, sans-serif",
-            size: 14
-        }
+    resultSummary: {
+        arrowColor: "#553716"
     }
 }
 

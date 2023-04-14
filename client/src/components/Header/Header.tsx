@@ -12,7 +12,7 @@ const Header = () => {
                      "There is more to Heaven and Earth than are dreamt of in your Philosophy"
                 </StyledSubheaderText>
                 <StyledSubheaderText>
-                -William Shakespeare
+                    -William Shakespeare
                 </StyledSubheaderText>
         </StyledHeaderContainer>
     )

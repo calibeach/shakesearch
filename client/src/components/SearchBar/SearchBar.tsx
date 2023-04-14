@@ -1,15 +1,6 @@
-import { useState } from 'react'
-import styled from 'styled-components'
-import { StyledInput, StyledForm, StyledSearchBarContainer } from './styles'
-import { FormEvent } from 'react'
-import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline"
 import { Button } from '../Button'
-
-const StyledCloseOutline = styled(CloseOutline)`
-  color: #000000;
-  height: 80px;
-
-`
+import { useState,FormEvent } from 'react'
+import { StyledInput, StyledForm, StyledSearchBarContainer } from './styles'
 
 const SearchBar = ({handleSubmit} : {handleSubmit: (s:string) => void}) => {
   const [query, setQuery] = useState("")

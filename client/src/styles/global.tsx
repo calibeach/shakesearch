@@ -13,10 +13,8 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 200;
         color: #221608;
     }
-
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #221608;
-  opacity: 1; /* Firefox */
+    ::placeholder {
+        color: #221608;
 }
 `
 

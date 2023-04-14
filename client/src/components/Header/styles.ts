@@ -5,6 +5,7 @@ const StyledSubheaderText = styled.p`
     flex-direction: column;
     font-family: ${({theme}) => theme.header.subheader.font};
     font-size: ${({theme}) => theme.header.subheader.fontSize}px;
+    color: ${({theme}) => theme.header.subheader.fontColor};
     justify-content: space-between;
     align-items: center;
     margin-top: 12px;

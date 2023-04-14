@@ -11,14 +11,14 @@ const StyledResultSummary = styled.span`
 `
 
 const StyledArrowRight = styled(ArrowRight)`
-    color: black;
+    color: ${({theme}) => theme.resultSummary.arrowColor};
     height: 16px;
     width: 16px;
     margin: 5px;
 ` 
 
 const StyledArrowLeft = styled(ArrowLeft)`
-    color: black;
+    color: ${({theme}) => theme.resultSummary.arrowColor};
     height: 16px;
     width: 16px;
     margin: 5px;

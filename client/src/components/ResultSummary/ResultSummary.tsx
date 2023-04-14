@@ -9,7 +9,7 @@ type ResultSummary = {
     handlePageBack: () => void
 }
 
-const ResultSummary = ({items, currentPage, total, totalPages, handlePageBack, handlePageForward}:ResultSummary) => {
+const ResultSummary = ({ items, currentPage, total, totalPages, handlePageBack, handlePageForward } : ResultSummary ) => {
 
     let beginningNumberOfResults, endNumberOfResults
 

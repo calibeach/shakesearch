@@ -16,7 +16,6 @@ export const StyledForm = styled.form`
 `
 
 export const StyledInput = styled.input`
-  flex: 1 0;
   min-width: 300px;
   min-height: 25px;
   border: 1px solid ${({theme}) => theme.searchBar.border.color};
@@ -24,7 +23,8 @@ export const StyledInput = styled.input`
   background-color: transparent;
   padding: 5px;
   margin: 10px;
-  &:focus {
-    outline: none
+  &:focus, &:hover {
+    outline: none;
+    box-shadow: 0 0 4px ${({theme}) => theme.searchBar.border.color};
   }
 `
