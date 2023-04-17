@@ -47,6 +47,9 @@ interface DefaultTheme {
     },
     resultSummary: {
         arrowColor: string
+    },
+    spinner: {
+        borderColor: string
     }
 }
 
@@ -99,6 +102,9 @@ const theme: DefaultTheme = {
     },
     resultSummary: {
         arrowColor: "#553716"
+    },
+    spinner: {
+        borderColor: "#553716"
     }
 }
 
