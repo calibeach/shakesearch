@@ -49,7 +49,8 @@ interface DefaultTheme {
         arrowColor: string
     },
     spinner: {
-        borderColor: string
+        borderColor: string,
+        borderTop: string
     }
 }
 
@@ -104,7 +105,8 @@ const theme: DefaultTheme = {
         arrowColor: "#553716"
     },
     spinner: {
-        borderColor: "#553716"
+        borderColor: "#553716",
+        borderTop: "#e6c6a1"
     }
 }
 
