@@ -1,9 +1,9 @@
-import { SpinnerProps, StyledSpinner } from "./styled";
+import { StyledSpinner } from "./styled";
 
 
-const LoadingSpinner = (props: SpinnerProps) => {
+const LoadingSpinner = () => {
     return (
-        <StyledSpinner {...props}/>
+        <StyledSpinner />
     )
 }
 
